@@ -13,7 +13,8 @@ class RegisterPage extends React.Component {
                 firstName: '',
                 lastName: '',
                 username: '',
-                password: ''
+                password: '',
+                role: ''
             },
             submitted: false
         };
@@ -62,6 +63,13 @@ class RegisterPage extends React.Component {
                         <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} />
                         {submitted && !user.lastName &&
                             <div className="help-block">Last Name is required</div>
+                        }
+                    </div>
+                    <div className={'form-group' + (submitted && !user.role ? ' has-error' : '')}>
+                        <label htmlFor="role">Role</label>
+                        <input type="text" className="form-control" name="role" placeholder="owner / contractor" value={user.role} onChange={this.handleChange} />
+                        {submitted && !user.role &&
+                            <div className="help-block">Role is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
